@@ -1,0 +1,51 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog_name }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="blog-header">
+        <a href="/">
+            <div class="blog-header-logo">
+                <img src="{{ logo_url }}" alt="{{ blog_name }}">
+            </div>
+        </a>
+        <a href="/">
+            <h1>{{ blog_name }}</h1>
+        </a>
+    </div>
+    <div class="home-container">
+        <div class="home-header">
+            <p>{{ blog_description }}</p>
+            <p><div class="links-list">
+                {% for link in links %}
+                <a href="{{ link.url }}">{{ link.name }}</a>
+                {% if not loop.last %} • {% endif %}
+                {% endfor %}
+            </div>
+            </p>
+            <p>test</p>
+        </div>
+        <div class="home-content">
+            <div class="post-list">
+                {% for post in posts %}
+                <a class="post-link" href="{{ post.url }}">
+                    <div class="post-morph">
+                        <div class="post-card">
+                            <h2>{{ post.title }}</h2>
+                            <p>{{ post.description }}</p>
+                            <p>{{ post.date }}</p>
+                        </div>
+                        <div class="post-content"></div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/main.js"></script>
+</html>

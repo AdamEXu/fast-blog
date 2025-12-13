@@ -1,0 +1,24 @@
+{
+  "name": "fast-blog",
+  "version": "1.0.0",
+  "description": "A fast, locally-routed blog",
+  "type": "module",
+  "scripts": {
+    "build": "tsx build.ts",
+    "dev": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/nunjucks": "^3.2.6",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.26.0",
+    "tsx": "^4.7.0",
+    "wrangler": "^3.22.1",
+    "markdown-it": "^14.0.0",
+    "@types/markdown-it": "^13.0.7"
+  }
+}

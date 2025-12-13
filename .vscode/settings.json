@@ -1,0 +1,10 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.(html|css|js|md|json)$",
+        "cmd": "pnpm run build"
+      }
+    ]
+  }
+}
