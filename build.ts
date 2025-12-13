@@ -112,7 +112,7 @@ async function build() {
 
   posts.forEach(post => {
     const postHTML = post.content;
-    writeFileSync(`dist/posts/${post.slug}.html`, postHTML);
+    writeFileSync(`dist${post.slug}`, postHTML);
   });
   console.log(`done writing ${posts.length} html codes... and were done!!! yippeeee`);
 }
