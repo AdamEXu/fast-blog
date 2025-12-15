@@ -9,16 +9,20 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "nunjucks": "^3.2.4"
+    "csso": "^5.0.5",
+    "nunjucks": "^3.2.4",
+    "postcss": "^8.5.6",
+    "postcss-modules": "^6.0.1",
+    "purgecss": "^7.0.2"
   },
   "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.10.6",
     "@types/nunjucks": "^3.2.6",
     "html-minifier-terser": "^7.2.0",
+    "markdown-it": "^14.0.0",
     "terser": "^5.26.0",
     "tsx": "^4.7.0",
-    "wrangler": "^3.22.1",
-    "markdown-it": "^14.0.0",
-    "@types/markdown-it": "^13.0.7"
+    "wrangler": "^3.22.1"
   }
 }

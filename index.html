@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ blog_name }}</title>
+    <script>
+        if (new URLSearchParams(location.search).get('sa')) {
+        const style = document.createElement('style');
+        style.textContent = `
+            *,
+            *::before,
+            *::after {
+            transition: none !important;
+            animation: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+        }
+    </script>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -22,24 +36,24 @@
             <p>{{ blog_description }}</p>
             <p><div class="links-list">
                 {% for link in links %}
-                <a href="{{ link.url }}">{{ link.name }}</a>
+                <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
                 {% if not loop.last %} • {% endif %}
                 {% endfor %}
             </div>
             </p>
-            <p>test</p>
         </div>
         <div class="home-content">
             <div class="post-list">
                 {% for post in posts %}
-                <a class="post-link" href="{{ post.url }}">
+                <a class="post-link" href="{{ post.slug }}">
                     <div class="post-morph">
                         <div class="post-card">
                             <h2>{{ post.title }}</h2>
                             <p>{{ post.description }}</p>
-                            <p>{{ post.date }}</p>
+                            <p>{{ post.author }} • {{ post.publish_date }}</p>
+                            <!-- <img src="{{ post.image_compressed }}" alt="{{ post.title }}"> -->
                         </div>
-                        <div class="post-content"></div>
+                        <div class="post-content" style="height: 0; overflow: hidden;"></div>
                     </div>
                 </a>
                 {% endfor %}

@@ -34,6 +34,12 @@ a:hover {
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--background);
 }
 
 .blog-header img {
@@ -58,6 +64,7 @@ a:hover {
 
 .home-container {
     padding: 1rem;
+    margin-top: 80px;
 }
 
 .home-header {
@@ -81,6 +88,25 @@ a:hover {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.post-morph {
+    background-color: var(--text);
+    color: var(--background);
+    border: var(--text) 4px solid;
+    padding: 0.5rem 1.5rem;
+    transition: color 0.2s ease, background-color 0.2s ease, border 0.2s ease, height 0.5s ease;
+}
+
+.post-morph:hover {
+    background-color: var(--background);
+    color: var(--accent);
+    border: var(--accent) 4px solid;
+}
+
+.post-link {
+    text-decoration: none;
+    background-color: transparent !important;
 }
 
 @media (max-width: 500px) {
