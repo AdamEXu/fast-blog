@@ -192,8 +192,7 @@ function navigateToPost(link, url) {
   const search = window.location.search;
 
   history.pushState({}, '', `${pathname}${search}`);
-  // openPost(link, url.href, animate);
-  renderPostFromURL(url, animate);
+  openPost(link, pathname, animate);
 }
 
 function navigateHome() {
@@ -240,15 +239,25 @@ function handleRouteChange(a = animate) {
   }
 
   if (isHomeLink(url)) {
-    closeAllPosts(animate);
+    closeAllPosts(a);
     return;
   }
 }
 
-function renderPostFromURL(url) {
-  const postLink = document.querySelector(`a[href="${url.pathname}"]`);
+function renderPostFromURL(url, a = animate) {
+  // Try exact pathname match first, then check if href ends with pathname
+  const postLink = document.querySelector(`a.post-link[href="${url.pathname}"]`) ||
+                   Array.from(document.querySelectorAll('a.post-link'))
+                     .find(link => {
+                       try {
+                         return new URL(link.href).pathname === url.pathname;
+                       } catch {
+                         return link.getAttribute('href') === url.pathname;
+                       }
+                     });
+
   if (postLink) {
-    openPost(postLink, url.href, animate);
+    openPost(postLink, url.pathname, a);
   }
 }
 
